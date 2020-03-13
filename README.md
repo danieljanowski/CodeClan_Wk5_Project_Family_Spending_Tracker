@@ -4,15 +4,15 @@ Build an app that allows users to track their spending.
 
 #### MVP
 
-* The app should allow to create users
-* The app should display user current budget/money left
-* The app should allow the user to create and edit merchants, e.g. Tesco, Amazon, ScotRail, Smyths
-* The app should allow the user to create and edit categories for their spending, e.g. groceries, entertainment, transport, sweets, toys
-* The user should be able to assign categories and merchants to a transaction, as well as an amount spent on each transaction.
-* The app should display all the transactions a user has made in a single view, with each transaction's amount, merchant and category, and a total for all transactions.
+* The app should allow the user to create and edit merchants, e.g. Tesco, Amazon, ScotRail
+* The app should allow the user to create and edit tags for their spending, e.g. groceries, entertainment, transport
+* The user should be able to assign tags and merchants to a transaction, as well as an amount spent on each transaction.
+* The app should display all the transactions a user has made in a single view, with each transaction's amount, merchant and tag, and a total for all transactions.
 
 #### Possible Extensions
 
+* The app should allow to create users
+* The app should display user current budget/money left
 * The app should allow to add money to users accounts with merchant/reason (merchant, pocket money, reward) and category (refund, earning)
 * The app should be able to add photo or picture for user 
 * The app should allow to add and edit reason/merchant and category (with flag "spending" as true in database?)
