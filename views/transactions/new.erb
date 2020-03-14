@@ -1,0 +1,13 @@
+<h1>Add new transaction</h1>
+
+<!-- <form action="" method="post">
+
+</form> -->
+  <p>
+    <% for transaction in @transactions %>
+      <%= transaction.user.username %>: <%= transaction.merchant.name %>,
+      <%= transaction.category.name %>,
+      £<%= transaction.value %>
+      <hr />
+    <% end %>
+  </p>

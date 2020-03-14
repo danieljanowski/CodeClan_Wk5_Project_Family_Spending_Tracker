@@ -10,7 +10,6 @@ Merchant.delete_all
 Category.delete_all
 User.delete_all
 
-
 user1 = User.new('first_name' => 'Daniel', 'last_name' => 'Janowski', 'username' => 'Daniel', 'balance' => 100)
 user1.save
 

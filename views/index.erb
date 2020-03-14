@@ -1,0 +1,4 @@
+
+<% for user in @users %>
+    <%= user.id %>: <a href="/transactions/<%= user.id %>"><%= user.username %></a>
+<% end %>

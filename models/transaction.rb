@@ -48,6 +48,33 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def user
+    sql = "SELECT users.* FROM users
+          INNER JOIN transactions
+          ON users.id = transactions.user_id
+          WHERE transactions.id = $1"
+    values = [@id]
+    return User.new(SqlRunner.run(sql, values).first)
+  end
+
+  def category
+    sql = "SELECT categories.* FROM categories
+          INNER JOIN transactions
+          ON categories.id = transactions.category_id
+          WHERE transactions.id = $1"
+    values = [@id]
+    return Category.new(SqlRunner.run(sql, values).first)
+  end
+
+  def merchant
+    sql = "SELECT merchants.* FROM merchants
+          INNER JOIN transactions
+          ON merchants.id = transactions.merchant_id
+          WHERE transactions.id = $1"
+    values = [@id]
+    return Merchant.new(SqlRunner.run(sql, values).first)
+  end
+
   def self.find(id)
     sql = "SELECT * FROM transactions
           WHERE id = $1"
