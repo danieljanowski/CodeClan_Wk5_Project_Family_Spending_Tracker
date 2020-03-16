@@ -1,0 +1,38 @@
+/* body {background-color: red} */
+body {
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+.header,
+.footer  {
+  flex: 1 100%;
+  text-align: left;
+}
+.sidebar {
+  flex: 1;
+}
+.main {
+  flex: 3;
+}
+.flex-item {
+  /* background: tomato; */
+  padding: 10px;
+  width: 100px;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+p {text-size: 1em;}

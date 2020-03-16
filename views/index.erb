@@ -1,4 +1,5 @@
 
 <% for user in @users %>
-    <%= user.id %>: <a href="/transactions/<%= user.id %>"><%= user.username %></a>
+    <a href="/transactions/<%= user.id %>"><%= user.username %></a> Balance: £ <%=  user.balance %>
+    <hr />
 <% end %>

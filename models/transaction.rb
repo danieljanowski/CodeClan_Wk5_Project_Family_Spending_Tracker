@@ -88,6 +88,13 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def self.by_user(id)
+    sql = "SELECT * FROM transactions
+          WHERE user_id = $1"
+    values = [id]
+    SqlRunner.run(sql, values).map {|transaction| Transaction.new(transaction)}
+  end
+
   def self.all
     sql = "SELECT * FROM transactions"
     SqlRunner.run(sql).map {|transaction| Transaction.new(transaction)}

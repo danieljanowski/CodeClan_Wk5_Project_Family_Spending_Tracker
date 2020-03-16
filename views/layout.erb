@@ -2,14 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-        <!-- <link rel="stylesheet" href="/style.css"> -->
+        <link rel="stylesheet" href="/style.css">
     <title></title>
     <!-- <link href="https://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet"> -->
   </head>
   <body>
-    <h1>Spendee</h1>
-
-    <%= yield %>
+    <section class="flex-container">
+      <header class="flex-item header"><h1>Spendee</h1></header>
+      <aside class="flex-item sidebar">MENU
+        <form action="/" method="get">
+          <input type="submit" value="Home">
+        </form>
+      </aside>
+      <main class="flex-item main">
+        <%= yield %>
+      </main>
+      <!-- <aside class="flex-item sidebar">Sidebar</aside> -->
+      <!-- <footer class="flex-item footer">Footer</footer> -->
+    </section>
+  </body>
 
   </body>
 </html>

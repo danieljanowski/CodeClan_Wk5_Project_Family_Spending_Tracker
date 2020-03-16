@@ -12,6 +12,10 @@ User.delete_all
 
 user1 = User.new('first_name' => 'Daniel', 'last_name' => 'Janowski', 'username' => 'Daniel', 'balance' => 100)
 user1.save
+user2 = User.new('first_name' => 'Kaja', 'last_name' => 'Janowska', 'username' => 'Kaja', 'balance' => 40)
+user2.save
+user3 = User.new('first_name' => 'Naomi', 'last_name' => 'Janowska', 'username' => 'Naomi', 'balance' => 6000)
+user3.save
 
 merchant1 = Merchant.new('name' => 'Tesco')
 merchant2 = Merchant.new('name' => 'Smyths')

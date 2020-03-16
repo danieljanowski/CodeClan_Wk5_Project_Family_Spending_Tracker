@@ -1,11 +1,35 @@
-<h1>Add new transaction</h1>
+<h1><%= @user.username %></h1>
+<hr />
 
-<!-- <form action="" method="post">
+<h3>Add new transaction</h3>
 
-</form> -->
+  <form method="post" action="/transactions/<%= @user.id %>">
+
+    <label for="Merchant">Merchant:</label>
+    <select name="merchant_id" id="merchant-selection">
+      <% @merchants.each do |merchant| %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+
+    <label for="Category">Category:</label>
+    <select name="category_id" id="category-selection">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+
+    <label for="Value">Value:</label>
+    <input type="number" name="value" id="value-field">
+
+    <input type="submit" value="Save">
+
+  </form>
+
   <p>
+    <hr />
     <% for transaction in @transactions %>
-      <%= transaction.user.username %>: <%= transaction.merchant.name %>,
+      <%= transaction.merchant.name %>,
       <%= transaction.category.name %>,
       £<%= transaction.value %>
       <hr />

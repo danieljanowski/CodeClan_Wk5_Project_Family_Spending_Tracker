@@ -1,7 +1,13 @@
+<h1><%= @user.username %></h1>
+
+<form action="/transaction/<%= @user.id %>/new" method="post">
+  <input type="submit" value="Add transaction">
+</form>
+
 <% total = 0 %>
 <p>
+  <hr />
 <% for transaction in @transactions %>
-    <%= transaction.user.username.capitalize %>:
     <%= transaction.merchant.name %>,
     <%= transaction.category.name %>,
     £<%= transaction.value %>
@@ -9,8 +15,4 @@
     <% total += transaction.value.to_i %>
 <% end %>
 </p>
-<p>Total: <%= total %></p>
-
-<form action="/transaction/new" method="post">
-  <input type="submit" value="Add transaction">
-</form>
+<p>Total: £<%= total %></p>
