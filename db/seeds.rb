@@ -10,11 +10,11 @@ Merchant.delete_all
 Category.delete_all
 User.delete_all
 
-user1 = User.new('first_name' => 'Daniel', 'last_name' => 'Janowski', 'username' => 'Daniel', 'balance' => 100)
+user1 = User.new('first_name' => 'Daniel', 'last_name' => 'Janowski', 'username' => 'Daniel', 'balance' => 100.00)
 user1.save
-user2 = User.new('first_name' => 'Kaja', 'last_name' => 'Janowska', 'username' => 'Kaja', 'balance' => 40)
+user2 = User.new('first_name' => 'Kaja', 'last_name' => 'Janowska', 'username' => 'Kaja', 'balance' => 40.00)
 user2.save
-user3 = User.new('first_name' => 'Naomi', 'last_name' => 'Janowska', 'username' => 'Naomi', 'balance' => 6000)
+user3 = User.new('first_name' => 'Naomi', 'last_name' => 'Janowska', 'username' => 'Naomi', 'balance' => 6000.00)
 user3.save
 
 merchant1 = Merchant.new('name' => 'Tesco')
@@ -31,9 +31,9 @@ category1.save
 category2.save
 category3.save
 
-transaction1 = Transaction.new('user_id' => user1.id, 'category_id' => category1.id, 'merchant_id' => merchant1.id, 'value' => 23)
-transaction2 = Transaction.new('user_id' => user1.id, 'category_id' => category2.id, 'merchant_id' => merchant2.id, 'value' => 34)
-transaction3 = Transaction.new('user_id' => user1.id, 'category_id' => category3.id, 'merchant_id' => merchant3.id, 'value' => 52)
+transaction1 = Transaction.new('user_id' => user1.id, 'category_id' => category1.id, 'merchant_id' => merchant1.id, 'value' => 23.00)
+transaction2 = Transaction.new('user_id' => user1.id, 'category_id' => category2.id, 'merchant_id' => merchant2.id, 'value' => 34.00)
+transaction3 = Transaction.new('user_id' => user1.id, 'category_id' => category3.id, 'merchant_id' => merchant3.id, 'value' => 52.00)
 
 transaction1.save
 transaction2.save

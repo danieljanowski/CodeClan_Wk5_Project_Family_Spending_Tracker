@@ -33,6 +33,5 @@ body {
   color: black;
   font-weight: bold;
   font-size: 2em;
-  text-align: center;
+  text-align: left;
 }
-p {text-size: 1em;}

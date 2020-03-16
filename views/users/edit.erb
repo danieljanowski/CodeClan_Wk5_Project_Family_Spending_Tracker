@@ -1,0 +1,17 @@
+
+<form action="/users/<%= @user.id %>" method="post">
+
+  <label for="first_name">First Name:</label>
+  <input type="text" name="first_name" id="first-name-field" value="<%= @user.first_name %>"/><hr>
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" name="last_name" id="last-name-field" value="<%= @user.last_name %>"/><hr>
+
+  <label for="username">Preffered display name:</label>
+  <input type="text" name="username" id="username-field" value="<%= @user.username %>"/><hr>
+
+  <input type="hidden" name="balance" id="balance-field" value="<%= @user.balance %>"/>
+
+  <input type="submit" value="Update"> </input>
+
+</form>
