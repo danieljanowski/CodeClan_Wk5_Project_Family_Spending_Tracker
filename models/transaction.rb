@@ -102,6 +102,13 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.delete_by_merchant(merchant_id)
+    sql = "DELETE FROM transactions
+          WHERE merchant_id = $1"
+    values = [merchant_id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.by_user(id)
     sql = "SELECT * FROM transactions
           WHERE user_id = $1"

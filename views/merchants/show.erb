@@ -1,0 +1,19 @@
+
+<table>
+  <tr>
+    <td><form action="/merchant/new" method="get">
+      <input type="submit" value="Add Merchant" </input>
+    </form></td>
+  </tr>
+  <% for merchant in @merchants %>
+  <tr>
+    <td><%= merchant.name %></td>
+    <td><form action="/merchants/<%= merchant.id %>/delete" method="get">
+      <input type="submit" value="Delete" </input>
+    </form></td>
+    <td><form action="/merchants/<%= merchant.id %>/edit" method="get">
+      <input type="submit" value="Edit" </input>
+    </form></td>
+  </tr>
+  <% end %>
+</table>
