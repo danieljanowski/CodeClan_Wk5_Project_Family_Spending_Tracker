@@ -23,12 +23,9 @@ class Category
 
   def update
     sql = "UPDATE categories
-          SET
-          (name)
-          =
-          ($1)
+          SET name = $1
           WHERE id = $2"
-    values = [@id]
+    values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 

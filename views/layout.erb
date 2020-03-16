@@ -9,13 +9,12 @@
   <body>
     <section class="flex-container">
       <header class="flex-item header"><h1>Spendee</h1></header>
-      <aside class="flex-item sidebar">MENU
-        <form action="/" method="get">
-          <input type="submit" value="Home">
-        </form>
-        <form action="/user/new" method="get">
-          <input type="submit" value="New User">
-        </form>
+      <aside class="flex-item sidebar">MENU <br>
+
+        <a href="/">Home</a><br>
+        <a href="/user/new">New User</a><br>
+        <a href="/categories">Categories</a><br>
+
       </aside>
       <main class="flex-item main">
         <%= yield %>

@@ -8,13 +8,17 @@
   <input type="submit" value="Edit User">
 </form>
 
+<form action="/users/<%= @user.id %>/delete" method="get">
+  <input type="submit" value="Delete User">
+</form>
+
 <% total = 0.00 %>
 <p>
   <hr />
 <% for transaction in @transactions %>
     <%= transaction.merchant.name %>,
     <%= transaction.category.name %>,
-    £<%= transaction.value %>
+    £<%= transaction.value.to_f %>
     <form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get">
       <input type="submit" value="Edit"> </input>
     </form>

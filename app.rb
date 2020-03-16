@@ -82,8 +82,49 @@ get '/users/:user_id/edit' do
    erb ( :"users/edit")
 end
 
+get '/users/:user_id/delete' do
+  Transaction.delete_by_user(params['user_id'])
+  user = User.find(params['user_id'])
+  user.delete
+  redirect to '/'
+end
+
 post '/users/:id' do
   user = User.new(params)
   user.update
   redirect to '/'
+end
+
+get '/categories' do
+  @categories = Category.all
+  erb (:"categories/show")
+end
+
+post '/categories' do
+  category = Category.new(params)
+  category.save
+  redirect to '/categories'
+end
+
+get '/category/new' do
+  erb( :"categories/new" )
+end
+
+get '/categories/:category_id/delete' do
+  Transaction.delete_by_category(params['category_id'])
+  category = Category.find(params['category_id'])
+  category.delete
+  redirect to '/categories'
+end
+
+get '/categories/:category_id/edit' do
+  @category = Category.find(params['category_id'])
+  # @categories = Category.all
+  erb ( :"categories/edit")
+end
+
+post '/categories/:id' do
+  category = Category.new(params)
+  category.update
+  redirect to '/categories'
 end

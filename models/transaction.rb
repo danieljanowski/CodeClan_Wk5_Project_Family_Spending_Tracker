@@ -88,6 +88,20 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def self.delete_by_user(user_id)
+    sql = "DELETE FROM transactions
+          WHERE user_id = $1"
+    values = [user_id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_by_category(category_id)
+    sql = "DELETE FROM transactions
+          WHERE category_id = $1"
+    values = [category_id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.by_user(id)
     sql = "SELECT * FROM transactions
           WHERE user_id = $1"

@@ -1,0 +1,19 @@
+
+<table>
+  <tr>
+    <td><form action="/category/new" method="get">
+      <input type="submit" value="Add Category" </input>
+    </form></td>
+  </tr>
+  <% for category in @categories %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><form action="/categories/<%= category.id %>/delete" method="get">
+      <input type="submit" value="Delete" </input>
+    </form></td>
+    <td><form action="/categories/<%= category.id %>/edit" method="get">
+      <input type="submit" value="Edit" </input>
+    </form></td>
+  </tr>
+  <% end %>
+</table>
