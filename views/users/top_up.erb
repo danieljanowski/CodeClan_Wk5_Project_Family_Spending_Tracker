@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <td><h3><%= @user.username %></h3></td>
+  </tr>
+  <tr>
+    <td><h4>Top-up account</h4></td>
+  </tr>
+  <tr>
+    <td><form action="/user/<%=@user.id%>/top_up" method="post">
+      <input type="text" name="balance">
+      <input type="submit" value="Top up" </input>
+      </form>
+    </td>
+  </tr>
+</table>

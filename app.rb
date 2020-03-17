@@ -56,8 +56,6 @@ end
 get '/transactions/:user_id' do
    @user = User.find(params['user_id'])
    @transactions = Transaction.by_user(params['user_id'])
-   @total_transactions = Transaction.total_by_user(@user.id)
-   @remaining_balance = @user.balance.to_f - @total_transactions.to_f
    erb( :"transactions/show")
 end
 
@@ -76,6 +74,17 @@ end
 post '/users' do
   user = User.new(params)
   user.save
+  redirect to '/'
+end
+
+get '/user/:user_id/top_up' do
+  @user = User.find(params['user_id'])
+  erb ( :"users/top_up" )
+end
+
+post '/user/:user_id/top_up' do
+  user = User.find(params['user_id'])
+  user.top_up(params['balance'])
   redirect to '/'
 end
 

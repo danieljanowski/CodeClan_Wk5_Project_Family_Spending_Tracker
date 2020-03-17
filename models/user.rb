@@ -48,6 +48,14 @@ class User
     SqlRunner.run(sql, values)
   end
 
+  def top_up(value)
+    sql = "UPDATE users
+          SET balance = balance + $1
+          WHERE id = $2"
+    values = [value, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.find(id)
     sql = "SELECT * FROM users
           WHERE id = $1"
