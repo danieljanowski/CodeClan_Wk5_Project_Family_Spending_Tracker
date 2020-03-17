@@ -29,9 +29,9 @@
   <table>
     <% for transaction in @transactions %>
       <tr>
-        <td><%= transaction.merchant.name %></td>
-        <td><%= transaction.category.name %></td>
-        <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+        <td style="width:300px"><%= transaction.merchant.name %></td>
+        <td style="width:300px"><%= transaction.category.name %></td>
+        <td style="width:90px">£<%= sprintf('%.2f', transaction.value.to_f) %></td>
       </tr>
     <% end %>
   </table>

@@ -35,3 +35,6 @@ body {
   font-size: 1.5em;
   text-align: left;
 }
+.red{background-color: red;}
+.yellow{background-color: yellow;}
+.nocolour{background-color: transparent;}

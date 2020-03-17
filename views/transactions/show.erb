@@ -15,22 +15,29 @@
     <td><form action="/user/<%= @user.id %>/top_up" method="get">
       <input type="submit" value="Top up account">
     </form></td>
+    <td><form action="/user/<%= @user.id %>/top_up" method="get">
+      <input type="submit" value="Top up account">
+    </form></td>
   </tr>
 </table>
 
 <% total_transactions = Transaction.total_by_user(@user.id) %>
 <% remaining_balance = @user.balance.to_f - total_transactions.to_f %>
+<% if remaining_balance <= 30 then balance_colour_class = "red" %>
+  <% else %>
+  <% balance_colour_class = "nocolour" %>
+<% end %>
 
 <table>
   <tr>
     <td>Transactions Total: £<%= sprintf('%.2f', total_transactions)%></td>
-    <td>Remaining Balance: £<%= sprintf('%.2f', remaining_balance) %></td>
+    <td class=<%= balance_colour_class %>>Remaining Balance: £<%= sprintf('%.2f', remaining_balance) %></td>
   </tr>
   <% for transaction in @transactions %>
     <tr>
-      <td><%= transaction.merchant.name %></td>
-      <td><%= transaction.category.name %></td>
-      <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      <td style="width:300px"><%= transaction.merchant.name %></td>
+      <td style="width:300px"><%= transaction.category.name %></td>
+      <td style="width:90px">£<%= sprintf('%.2f', transaction.value.to_f) %></td>
       <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete" method="get">
         <input type="submit" value="Delete"> </input>
       </form></td>
