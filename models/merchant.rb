@@ -50,7 +50,8 @@ class Merchant
   end
 
   def self.all
-    sql = "SELECT * FROM merchants"
+    sql = "SELECT * FROM merchants
+          ORDER BY merchants.name"
     SqlRunner.run(sql).map {|merchant| Merchant.new(merchant)}
   end
 

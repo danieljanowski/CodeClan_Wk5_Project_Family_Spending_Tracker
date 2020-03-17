@@ -50,7 +50,8 @@ class Category
   end
 
   def self.all
-    sql = "SELECT * FROM categories"
+    sql = "SELECT * FROM categories
+          ORDER BY categories.name"
     SqlRunner.run(sql).map {|category| Category.new(category)}
   end
 

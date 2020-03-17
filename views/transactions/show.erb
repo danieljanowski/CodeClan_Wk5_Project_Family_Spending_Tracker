@@ -31,10 +31,10 @@
       <td><%= transaction.merchant.name %></td>
       <td><%= transaction.category.name %></td>
       <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
-      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete"      method="get">
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete" method="get">
         <input type="submit" value="Delete"> </input>
       </form></td>
-      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit"      method="get"><input type="submit" value="Edit"> </input>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get"><input type="submit" value="Edit"> </input>
       </form></td>
     </tr>
   <% end %>

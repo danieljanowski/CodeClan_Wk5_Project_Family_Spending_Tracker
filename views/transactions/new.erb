@@ -26,12 +26,12 @@
 
   </form>
 
-  <p>
-    <hr />
+  <table>
     <% for transaction in @transactions %>
-      <%= transaction.merchant.name %>,
-      <%= transaction.category.name %>,
-      £<%= transaction.value %>
-      <hr />
+      <tr>
+        <td><%= transaction.merchant.name %></td>
+        <td><%= transaction.category.name %></td>
+        <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      </tr>
     <% end %>
-  </p>
+  </table>

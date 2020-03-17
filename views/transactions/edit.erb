@@ -28,18 +28,18 @@
     </select>
 
     <label for="Value">Value:</label>
-    <input type="number" name="value" id="value-field" value="<%= @transaction.value %> min="0" step="0.01""></input>
+    <input type="number" name="value" id="value-field" value="<%= @transaction.value %>" step="0.01"></input>
 
     <input type="submit" value="Update"> </input>
 
   </form>
 
-  <p>
-    <hr />
+  <table>
     <% for transaction in @transactions %>
-      <%= transaction.merchant.name %>,
-      <%= transaction.category.name %>,
-      £<%= transaction.value %>
-      <hr />
+      <tr>
+        <td><%= transaction.merchant.name %></td>
+        <td><%= transaction.category.name %></td>
+        <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      </tr>
     <% end %>
-  </p>
+  </table>

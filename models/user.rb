@@ -70,7 +70,8 @@ class User
   end
 
   def self.all
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM users
+          ORDER BY users.username"
     SqlRunner.run(sql).map {|user| User.new(user)}
   end
 

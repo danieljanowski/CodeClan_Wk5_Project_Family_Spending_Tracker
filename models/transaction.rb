@@ -52,7 +52,8 @@ class Transaction
     sql = "SELECT users.* FROM users
           INNER JOIN transactions
           ON users.id = transactions.user_id
-          WHERE transactions.id = $1"
+          WHERE transactions.id = $1
+          ORDER BY transactions.id"
     values = [@id]
     return User.new(SqlRunner.run(sql, values).first)
   end
@@ -61,7 +62,8 @@ class Transaction
     sql = "SELECT categories.* FROM categories
           INNER JOIN transactions
           ON categories.id = transactions.category_id
-          WHERE transactions.id = $1"
+          WHERE transactions.id = $1
+          ORDER BY categories.name"
     values = [@id]
     return Category.new(SqlRunner.run(sql, values).first)
   end
@@ -70,7 +72,8 @@ class Transaction
     sql = "SELECT merchants.* FROM merchants
           INNER JOIN transactions
           ON merchants.id = transactions.merchant_id
-          WHERE transactions.id = $1"
+          WHERE transactions.id = $1
+          ORDER BY merchants.name"
     values = [@id]
     return Merchant.new(SqlRunner.run(sql, values).first)
   end
@@ -124,7 +127,8 @@ class Transaction
   end
 
   def self.all
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions
+          ORDER BY transactions.id"
     SqlRunner.run(sql).map {|transaction| Transaction.new(transaction)}
   end
 
