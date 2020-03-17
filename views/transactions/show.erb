@@ -9,11 +9,8 @@
     </form></td>
   </tr>
   <tr>
-    <td><form action="/transaction/<%= @user.id %>/new" method="get">
+    <td><form action="/transactions/<%= @user.id %>/new" method="get">
       <input type="submit" value="Add transaction">
-    </form></td>
-    <td><form action="/user/<%= @user.id %>/top_up" method="get">
-      <input type="submit" value="Top up account">
     </form></td>
     <td><form action="/user/<%= @user.id %>/top_up" method="get">
       <input type="submit" value="Top up account">
@@ -24,6 +21,7 @@
 <% total_transactions = Transaction.total_by_user(@user.id) %>
 <% remaining_balance = @user.balance.to_f - total_transactions.to_f %>
 <% if remaining_balance <= 30 then balance_colour_class = "red" %>
+  <% elsif remaining_balance <= 60 then balance_colour_class = "yellow" %>
   <% else %>
   <% balance_colour_class = "nocolour" %>
 <% end %>
