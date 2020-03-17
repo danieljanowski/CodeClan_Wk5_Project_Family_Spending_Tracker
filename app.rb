@@ -56,6 +56,8 @@ end
 get '/transactions/:user_id' do
    @user = User.find(params['user_id'])
    @transactions = Transaction.by_user(params['user_id'])
+   @total_transactions = Transaction.total_by_user(@user.id)
+   @remaining_balance = @user.balance.to_f - @total_transactions.to_f
    erb( :"transactions/show")
 end
 

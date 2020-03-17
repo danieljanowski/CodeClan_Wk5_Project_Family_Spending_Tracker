@@ -1,34 +1,37 @@
-<h1><%= @user.username %></h1>
 
-<form action="/transaction/<%= @user.id %>/new" method="get">
-  <input type="submit" value="Add transaction">
-</form>
 
-<form action="/users/<%= @user.id %>/edit" method="get">
-  <input type="submit" value="Edit User">
-</form>
 
-<form action="/users/<%= @user.id %>/delete" method="get">
-  <input type="submit" value="Delete User">
-</form>
+<table>
+  <tr>
+    <td><h3><%= @user.username %></h3></td>
+    <td><form action="/users/<%= @user.id %>/edit" method="get">
+      <input type="submit" value="Edit User">
+    </form></td>
+    <td><form action="/users/<%= @user.id %>/delete" method="get">
+      <input type="submit" value="Delete User">
+    </form></td>
+  </tr>
+  <tr>
+    <td><form action="/transaction/<%= @user.id %>/new" method="get">
+      <input type="submit" value="Add transaction">
+    </form></td>  </tr>
+</table>
 
-<% total = 0.00 %>
-<p>
-  <hr />
-<% for transaction in @transactions %>
-    <%= transaction.merchant.name %>,
-    <%= transaction.category.name %>,
-    £<%= transaction.value.to_f %>
-    <form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get">
-      <input type="submit" value="Edit"> </input>
-    </form>
-
-    <form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete" method="get">
+<table>
+  <tr>
+    <td>Transactions Total: £<%= sprintf('%.2f', @total_transactions)%></td>
+    <td>Remaining Balance: £<%= sprintf('%.2f', @remaining_balance) %></td>
+  </tr>
+  <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.merchant.name %></td>
+      <td><%= transaction.category.name %></td>
+      <td>£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete"      method="get">
         <input type="submit" value="Delete"> </input>
-    </form>
-
-    <hr />
-    <% total += transaction.value.to_f %>
-<% end %>
-</p>
-<p>Total: £<%= total %></p>
+      </form></td>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit"      method="get"><input type="submit" value="Edit"> </input>
+      </form></td>
+    </tr>
+  <% end %>
+</table>

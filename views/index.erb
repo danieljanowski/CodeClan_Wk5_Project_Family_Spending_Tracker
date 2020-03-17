@@ -1,5 +1,17 @@
+<table>
+  <tr>
+    <td><form action="/user/new" method="get">
+      <input type="submit" value="Add User" </input>
+    </form></td>
+  </tr>
 
 <% for user in @users %>
-    <a href="/transactions/<%= user.id %>"><%= user.username %></a> Balance: £ <%=  user.balance %>
-    <hr />
+  <% total_transactions = Transaction.total_by_user(user.id) %>
+  <% remaining_balance = user.balance.to_f - total_transactions.to_f %>
+    <tr>
+      <td><a href="/transactions/<%= user.id %>"><%= user.username %></a> </td>
+      <td>Balance: £ <%= sprintf('%.2f', remaining_balance) %></td>
+    </tr>
 <% end %>
+
+</<table>
