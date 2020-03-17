@@ -1,26 +1,7 @@
-<table>
-  <tr>
-    <td><h2><%= @user.username %></h2></td>
-  </tr>
-  <tr>
-    <td><form action="/users/<%= @user.id %>/edit" method="get">
-      <input type="submit" value="Edit User">
-    </form></td>
-    <td><form action="/users/<%= @user.id %>/delete" method="get">
-      <input type="submit" value="Delete User">
-    </form></td>
-  </tr>
-  <tr>
-    <td><form action="/transactions/<%= @user.id %>/new" method="get">
-      <input type="submit" value="Add transaction">
-    </form></td>
-    <td><form action="/user/<%= @user.id %>/top_up" method="get">
-      <input type="submit" value="Top up account">
-    </form></td>
-  </tr>
-</table>
+<h2><%= @user.username %></h2>
 
 <% total_transactions = Transaction.total_by_user(@user.id) %>
+<% total_transactions = 0 if total_transactions == nil %>
 <% remaining_balance = @user.balance.to_f - total_transactions.to_f %>
 <% if remaining_balance <= 30 then balance_colour_class = "red" %>
   <% elsif remaining_balance <= 60 then balance_colour_class = "yellow" %>
@@ -30,18 +11,43 @@
 
 <table>
   <tr>
-    <td>Transactions Total: £<%= sprintf('%.2f', total_transactions)%></td>
+    <td style="width:450px"> Transactions Total: £<%= sprintf('%.2f', total_transactions)%></td>
     <td class=<%= balance_colour_class %>>Remaining Balance: £<%= sprintf('%.2f', remaining_balance) %></td>
   </tr>
+</table>
+
+<hr />
+
+<table>
+  <tr>
+    <td><form action="/users/<%= @user.id %>/edit" method="get">
+      <button class="button button1" type="submit"> Edit User </button>
+    </form></td>
+    <td><form action="/users/<%= @user.id %>/delete" method="get">
+      <button class="button button1" type="submit"> Delete User </button>
+    </form></td>
+  <!-- </tr>
+  <tr> -->
+    <td><form action="/transaction/<%= @user.id %>/new" method="get">
+      <button class="button button1" type="submit"> Add Transaction </button>
+    </form></td>
+    <td><form action="/user/<%= @user.id %>/top_up" method="get">
+      <button class="button button1" type="submit"> Top Up Account</button>
+    </form></td>
+  </tr>
+</table>
+
+<table>
   <% for transaction in @transactions %>
     <tr>
-      <td style="width:300px"><%= transaction.merchant.name %></td>
-      <td style="width:300px"><%= transaction.category.name %></td>
-      <td style="width:90px">£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      <td style="width:450px"><%= transaction.merchant.name %></td>
+      <td style="width:450px"><%= transaction.category.name %></td>
+      <td style="width:90px" align="right">£<%= sprintf('%.2f', transaction.value.to_f) %></td>
       <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete" method="get">
-        <input type="submit" value="Delete"> </input>
+        <button type="submit"> Delete </button>
       </form></td>
-      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get"><input type="submit" value="Edit"> </input>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get">
+        <button type="submit"> Edit </button>
       </form></td>
     </tr>
   <% end %>

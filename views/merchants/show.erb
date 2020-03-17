@@ -1,18 +1,19 @@
-<h3>Merchants</h3>
+<h2>Merchants</h2>
+<hr />
 <table>
   <tr>
     <td><form action="/merchant/new" method="get">
-      <input type="submit" value="Add Merchant" </input>
+      <button type="submit"> Add Merchant </button>
     </form></td>
   </tr>
   <% for merchant in @merchants %>
   <tr>
-    <td><%= merchant.name %></td>
+    <td style="width:300px"><%= merchant.name %></td>
     <td><form action="/merchants/<%= merchant.id %>/delete" method="get">
-      <input type="submit" value="Delete" </input>
+      <button type="submit"> Delete </button>
     </form></td>
     <td><form action="/merchants/<%= merchant.id %>/edit" method="get">
-      <input type="submit" value="Edit" </input>
+      <button type="submit"> Edit </button>
     </form></td>
   </tr>
   <% end %>

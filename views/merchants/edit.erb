@@ -1,9 +1,10 @@
-<h3>Edit Merchant</h3>
+<h2>Edit Merchant</h2>
+<hr />
 <table>
   <tr>
     <td><form action="/merchants/<%= @merchant.id %>" method="post">
       <input type="text" name="name" value="<%=  @merchant.name%>">
-      <input type="submit" value="Update"> </input>
+      <button type="submit"> Update </button>
     </form></td>
   </tr>
 </table>

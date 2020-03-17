@@ -1,9 +1,10 @@
-<h3>Edit Category</h3>
+<h2>Edit Category</h2>
+<hr />
 <table>
   <tr>
     <td><form action="/categories/<%= @category.id %>" method="post">
       <input type="text" name="name" value="<%=  @category.name%>">
-      <input type="submit" value="Update"> </input>
+      <button type="submit"> Update </button>
     </form></td>
   </tr>
 </table>

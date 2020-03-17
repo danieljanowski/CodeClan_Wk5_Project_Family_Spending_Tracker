@@ -1,6 +1,5 @@
-/* body {background-color: red} */
 body {
-  background-image: url('background.jpg');
+  background-image: url('spendee.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -14,8 +13,8 @@ body {
   flex-flow: row wrap;
   align-items: stretch;
 }
-.header,
-.footer  {
+.header {
+  height: 150px;
   flex: 1 100%;
   text-align: left;
 }
@@ -32,9 +31,60 @@ body {
   border: 1px none black;
   color: black;
   font-weight: normal;
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: left;
+  font-family: 'Hind', sans-serif;
 }
 .red{background-color: red;}
 .yellow{background-color: yellow;}
 .nocolour{background-color: transparent;}
+
+button {
+  background-color: transparent;
+  border: 2px solid #555555;
+  color: black;
+  padding: 12px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+button:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.button1 {
+    width: 170px;
+}
+
+input[type=text] {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+/* .input1 {
+   width: 100px;
+ } */
+
+select {
+    position: relative;
+    font-family: Arial;
+    height: 40px;
+    width: 15%;
+    /* display: none; */
+  }

@@ -1,18 +1,19 @@
-<h3>Categories</h3>
+<h2>Categories</h2>
+<hr />
 <table>
   <tr>
     <td><form action="/category/new" method="get">
-      <input type="submit" value="Add Category" </input>
+      <button type="submit"> Add Category </button>
     </form></td>
   </tr>
   <% for category in @categories %>
   <tr>
-    <td><%= category.name %></td>
+    <td style="width:300px"><%= category.name %></td>
     <td><form action="/categories/<%= category.id %>/delete" method="get">
-      <input type="submit" value="Delete" </input>
+      <button type="submit"> Delete </button>
     </form></td>
     <td><form action="/categories/<%= category.id %>/edit" method="get">
-      <input type="submit" value="Edit" </input>
+      <button type="submit"> Edit </button>
     </form></td>
   </tr>
   <% end %>
