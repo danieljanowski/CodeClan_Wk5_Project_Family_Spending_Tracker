@@ -1,6 +1,8 @@
 <table>
   <tr>
-    <td><h3><%= @user.username %></h3></td>
+    <td><h2><%= @user.username %></h2></td>
+  </tr>
+  <tr>
     <td><form action="/users/<%= @user.id %>/edit" method="get">
       <input type="submit" value="Edit User">
     </form></td>
