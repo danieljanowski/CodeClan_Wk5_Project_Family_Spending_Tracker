@@ -3,8 +3,8 @@
 <% total_transactions = Transaction.total_by_user(@user.id) %>
 <% total_transactions = 0 if total_transactions == nil %>
 <% remaining_balance = @user.balance.to_f - total_transactions.to_f %>
-<% if remaining_balance <= 30 then balance_colour_class = "red" %>
-  <% elsif remaining_balance <= 60 then balance_colour_class = "yellow" %>
+<% if remaining_balance <= 0 then balance_colour_class = "red" %>
+  <% elsif remaining_balance <= 100 then balance_colour_class = "yellow" %>
   <% else %>
   <% balance_colour_class = "nocolour" %>
 <% end %>
@@ -33,6 +33,24 @@
     </form></td>
     <td><form action="/user/<%= @user.id %>/top_up" method="get">
       <button class="button button1" type="submit"> Top Up Account</button>
+    </form></td>
+    <td><form action="/transactions/<%= @user.id %>/search" method="post">
+      <label for="merchant"></label>
+          <select id="merchant" name="merchant_id">
+            <% for merchant in @merchants %>
+            <option id="merchant-filter" value= "<%= merchant.id %>"><%= merchant.name %></option>
+            <% end %>
+          </select>
+      <button type="submit"> Filter </button>
+    </form></td>
+    <td><form action="/transactions/<%= @user.id %>/search" method="post">
+      <label for="category"></label>
+          <select id="category" name="category_id">
+            <% for category in @categories %>
+            <option id="category-filter" value= "<%= category.id %>"><%= category.name %></option>
+            <% end %>
+          </select>
+      <button type="submit"> Filter </button>
     </form></td>
   </tr>
 </table>

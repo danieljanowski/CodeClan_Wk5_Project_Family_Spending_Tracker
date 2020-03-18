@@ -64,7 +64,7 @@ button:hover {
 }
 
 input[type=text] {
-  width: 15%;
+  width: 15;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -88,3 +88,7 @@ select {
     width: 15%;
     /* display: none; */
   }
+
+.merchant {width: 30%;}
+
+.merchant-filter {width: 30%;}

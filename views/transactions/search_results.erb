@@ -1,0 +1,19 @@
+<h2><%= @user.username %></h2>
+
+<hr />
+
+<table>
+  <% for transaction in @transactions %>
+    <tr>
+      <td style="width:450px"><%= transaction.merchant.name %></td>
+      <td style="width:450px"><%= transaction.category.name %></td>
+      <td style="width:90px" align="right">£<%= sprintf('%.2f', transaction.value.to_f) %></td>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/delete" method="get">
+        <button type="submit"> Delete </button>
+      </form></td>
+      <td><form action="/transaction/<%= @user.id %>/<%= transaction.id %>/edit" method="get">
+        <button type="submit"> Edit </button>
+      </form></td>
+    </tr>
+  <% end %>
+</table>

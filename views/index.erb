@@ -10,15 +10,15 @@
 <% for user in @users %>
   <% total_transactions = Transaction.total_by_user(user.id) %>
   <% remaining_balance = user.balance.to_f - total_transactions.to_f %>
-  <% if remaining_balance <= 30 then balance_colour_class = "red" %>
-    <% elsif remaining_balance <= 60 then balance_colour_class = "yellow" %>
+  <% if remaining_balance <= 0 then balance_colour_class = "red" %>
+    <% elsif remaining_balance <= 100 then balance_colour_class = "yellow" %>
     <% else %>
     <% balance_colour_class = "nocolour" %>
   <% end %>
     <tr>
       <td style="width:400px"><a href="/transactions/<%= user.id %>"><%= user.username %></a> </td>
       <td>Balance: </td>
-      <td class=<%= balance_colour_class %> align="right">£ <%= sprintf('%.2f', remaining_balance) %></td>
+      <td class=<%= balance_colour_class %> align="right">£    <%= sprintf('%.2f', remaining_balance) %></td>
     </tr>
 <% end %>
 

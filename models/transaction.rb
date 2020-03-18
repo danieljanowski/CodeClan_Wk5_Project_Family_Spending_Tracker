@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry-byebug')
 
 class Transaction
 
@@ -110,6 +111,28 @@ class Transaction
           WHERE merchant_id = $1"
     values = [merchant_id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.find_by_merchant(user_id, merchant_id)
+    sql = "SELECT transactions.*, merchants.name FROM transactions
+          INNER JOIN merchants
+          ON merchants.id = transactions.merchant_id
+          WHERE user_id = $1 AND merchant_id = $2
+          ORDER BY merchants.name"
+    values = [user_id, merchant_id]
+    result = SqlRunner.run(sql, values)
+    search = result.map{|transaction| Transaction.new(transaction)}
+  end
+
+  def self.find_by_category(user_id, category_id)
+    sql = "SELECT transactions.*, categories.name FROM transactions
+          INNER JOIN categories
+          ON categories.id = transactions.merchant_id
+          WHERE user_id = $1 AND category_id = $2
+          ORDER BY categories.name"
+    values = [user_id, category_id]
+    result = SqlRunner.run(sql, values)
+    result.map{|transaction| Transaction.new(transaction)}
   end
 
   def self.by_user(id)
