@@ -18,7 +18,7 @@
     <tr>
       <td style="width:400px"><a href="/transactions/<%= user.id %>"><%= user.username %></a> </td>
       <td>Balance: </td>
-      <td class=<%= balance_colour_class %> align="right">£    <%= sprintf('%.2f', remaining_balance) %></td>
+      <td class=<%= balance_colour_class %> align="right">£ <%= sprintf('%.2f', remaining_balance) %></td>
     </tr>
 <% end %>
 

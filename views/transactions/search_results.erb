@@ -1,6 +1,12 @@
 <h2><%= @user.username %></h2>
 
+Total Transactions: £<%= sprintf('%.2f', @total_transactions) %>
+
 <hr />
+
+<td><form action="/transactions/<%= @user.id %>" method="get">
+  <button type="submit"> Back </button>
+</form></td>
 
 <table>
   <% for transaction in @transactions %>

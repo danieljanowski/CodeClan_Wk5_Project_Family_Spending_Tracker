@@ -77,10 +77,6 @@ input[type=number] {
   box-sizing: border-box;
 }
 
-/* .input1 {
-   width: 100px;
- } */
-
 select {
     position: relative;
     font-family: Arial;
@@ -89,6 +85,4 @@ select {
     /* display: none; */
   }
 
-.merchant {width: 30%;}
-
-.merchant-filter {width: 30%;}
+.search {width: 41%;}

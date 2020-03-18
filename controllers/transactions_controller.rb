@@ -46,6 +46,8 @@ post '/transactions/:user_id/search' do
   else
     @transactions = "No transactions"
   end
+  # binding.pry
+  @total_transactions = @transactions.reduce(0){|total, transaction|total + transaction.value.to_f}
   erb(:'transactions/search_results')
 end
 
