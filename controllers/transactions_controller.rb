@@ -1,4 +1,3 @@
-require('pry-byebug')
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative('../models/category')
@@ -43,10 +42,7 @@ post '/transactions/:user_id/search' do
     @transactions = Transaction.find_by_merchant(params['user_id'], params['merchant_id'])
   elsif params['category_id']
     @transactions = Transaction.find_by_category(params['user_id'], params['category_id'])
-  else
-    @transactions = "No transactions"
   end
-  # binding.pry
   @total_transactions = @transactions.reduce(0){|total, transaction|total + transaction.value.to_f}
   erb(:'transactions/search_results')
 end

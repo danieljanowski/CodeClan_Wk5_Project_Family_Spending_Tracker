@@ -127,7 +127,7 @@ class Transaction
   def self.find_by_category(user_id, category_id)
     sql = "SELECT transactions.*, categories.name FROM transactions
           INNER JOIN categories
-          ON categories.id = transactions.merchant_id
+          ON categories.id = transactions.category_id
           WHERE user_id = $1 AND category_id = $2
           ORDER BY categories.name"
     values = [user_id, category_id]

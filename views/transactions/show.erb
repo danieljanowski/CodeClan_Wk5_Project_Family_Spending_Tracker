@@ -4,7 +4,7 @@
 <% total_transactions = 0 if total_transactions == nil %>
 <% remaining_balance = @user.balance.to_f - total_transactions.to_f %>
 <% if remaining_balance <= 0 then balance_colour_class = "red" %>
-  <% elsif remaining_balance <= 100 then balance_colour_class = "yellow" %>
+  <% elsif remaining_balance <= 50 then balance_colour_class = "yellow" %>
   <% else %>
   <% balance_colour_class = "nocolour" %>
 <% end %>
