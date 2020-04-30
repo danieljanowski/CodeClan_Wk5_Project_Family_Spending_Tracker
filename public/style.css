@@ -2,6 +2,7 @@ body {
   background-image: url('spendee.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  background-color: rgb(246, 246, 216);
 }
 .flex-container {
   padding: 0;

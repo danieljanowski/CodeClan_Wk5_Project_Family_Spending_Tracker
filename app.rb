@@ -1,4 +1,3 @@
-require('pry-byebug')
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 

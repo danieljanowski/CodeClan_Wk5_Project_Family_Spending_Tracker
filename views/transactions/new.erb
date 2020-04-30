@@ -14,7 +14,7 @@
 
     <label for="Category">Category:</label>
     <select name="category_id" id="category-selection">
-      <% @categories.each do |category| %>
+      <% @categories.each do |category| %><>
         <option value="<%= category.id %>"><%= category.name %></option>
       <% end %>
     </select>
