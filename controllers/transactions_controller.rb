@@ -28,7 +28,6 @@ end
 get '/transaction/:user_id/:transaction_id/edit' do
  # catch user_id
  @user = User.find(params['user_id'])
- # binding.pry
  @transaction = Transaction.find(params['transaction_id'])
  @transactions = Transaction.by_user(params['user_id'])
  @merchants = Merchant.all
