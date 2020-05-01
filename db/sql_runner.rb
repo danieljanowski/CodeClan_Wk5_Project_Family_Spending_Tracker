@@ -8,7 +8,7 @@ class SqlRunner
     begin
       # db = PG.connect({ dbname: 'pocket_money', host: 'localhost' })
       db = PG.connect({
-        host:uri.host,
+        host: uri.host,
         dbname: uri.path[1..-1],
         user: uri.user,
         password: uri.password
