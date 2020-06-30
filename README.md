@@ -1,3 +1,5 @@
+![Spendee](https://github.com/danieljanowski/CodeClan_Wk5_Project_Family_Spending_Tracker/blob/master/screenshot.png)
+
 ### Family Spending and Pocket Money Tracker
 
 Build an app that allows users to track their spending.
