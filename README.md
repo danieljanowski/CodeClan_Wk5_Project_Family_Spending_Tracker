@@ -1,6 +1,11 @@
 ![Spendee](https://github.com/danieljanowski/CodeClan_Wk5_Project_Family_Spending_Tracker/blob/master/screenshot.png)
 
-### Family Spending and Pocket Money Tracker
+### Spendee - Family Spending and Pocket Money Tracker
+
+ - 5 days solo project
+ - Web application in Ruby Sinatra, PostgreSQL, HTML, CSS, PG gem and Minitest. Allows the user to log the spending, filter transactions, learn habits and manage the budget. Multiuser support allows parents and children to log and keep track of pocket money. 
+
+### Brief
 
 Build an app that allows users to track their spending.
 
